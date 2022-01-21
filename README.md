@@ -1,2 +1,2 @@
 # gomodoro
-Pomodoro timer app currently implemented via CLI.
+pomodoro in go
