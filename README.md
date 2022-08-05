@@ -1,2 +1,3 @@
 # gomodoro
-pomodoro in go
+## How to use it
+
