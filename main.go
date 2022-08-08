@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"strconv"
+	"time"
 
 	"github.com/thatisuday/commando"
 )
@@ -13,11 +15,20 @@ func main() {
 		SetDescription("Pomodoro timer for your terminal")
 
 	commando.
-		Register(nil).
+		Register("time").
 		AddArgument("time", "Time in minutes", "20").
 		SetDescription("Starts the timer").
 		SetAction(func(args map[string]commando.ArgValue, flags map[string]commando.FlagValue) {
-			fmt.Println("Starting timer for", args["time"])
+			fmt.Println("Starting timer for", args["time"].Value, " minutes")
+			inputTimeParsed, _ := strconv.Atoi(args["time"].Value)
+			pomodoroDuration := time.Duration(inputTimeParsed) * time.Minute
+			pomodoroStartTime := time.Now()
+			fmt.Print(pomodoroStartTime.Second(), pomodoroDuration.Minutes())
+			// for time.Now() != pomodoroStartTime.Add(pomodoroDuration*time.Minute) {
+			// 	time.Sleep(time.Second) // Sleep for 1 second
+			// 	secondsSinceStart := time.Now().Sub(pomodoroStartTime).Round(time.Second)
+			// 	fmt.Printf("\r %v", secondsSinceStart)
+			// }
 		})
 	commando.Parse(nil)
 }
