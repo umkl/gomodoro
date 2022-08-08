@@ -2,40 +2,25 @@ package main
 
 import (
 	"fmt"
-"github.com/thatisuday/commando"
+
+	"github.com/thatisuday/commando"
 )
 
-func main(){
-commando.
-SetExecutableName("gomodoro").
-SetVersion("1.0.0").
-SetDescription("Pomodoro timer for your terminal")
+func main() {
+	commando.
+		SetExecutableName("gomo").
+		SetVersion("1.0.0").
+		SetDescription("Pomodoro timer for your terminal")
 
-commando.	
-	Register("pomo").
-	AddArgument("tm", "set a custom time how long ", "25")
-	
-	
+	commando.
+		Register(nil).
+		AddArgument("time", "Time in minutes", "20").
+		SetDescription("Starts the timer").
+		SetAction(func(args map[string]commando.ArgValue, flags map[string]commando.FlagValue) {
+			fmt.Println("Starting timer for", args["time"])
+		})
 	commando.Parse(nil)
-
-
 }
-
-
-// func main() {
-// 	fmt.Println(time.Now())
-// 	startTime := time.Now()
-// 	pomo := time.Duration(time.Minute * 25)
-// 	for i := 0; i < 1500; i++ {
-// 		time.Sleep(time.Second)
-// 		currentTime := time.Now()
-// 		subtr := currentTime.Sub(startTime).Round(time.Second)
-// 		// fmt.Println(subtr)
-// 		cTime := pomo - subtr
-// 		fmt.Printf("\r %v", cTime)
-// 	}
-
-// }
 
 // func main() {
 // 	// Parse command-line arguments
