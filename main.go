@@ -23,12 +23,14 @@ func main() {
 			inputTimeParsed, _ := strconv.Atoi(args["time"].Value)
 			pomodoroDuration := time.Duration(inputTimeParsed) * time.Minute
 			pomodoroStartTime := time.Now()
-			fmt.Print(pomodoroStartTime.Second(), pomodoroDuration.Minutes())
-			// for time.Now() != pomodoroStartTime.Add(pomodoroDuration*time.Minute) {
-			// 	time.Sleep(time.Second) // Sleep for 1 second
-			// 	secondsSinceStart := time.Now().Sub(pomodoroStartTime).Round(time.Second)
-			// 	fmt.Printf("\r %v", secondsSinceStart)
-			// }
+			pomodoroEndTime := pomodoroStartTime.Add(pomodoroDuration)
+
+			for time.Now() != pomodoroEndTime {
+				time.Sleep(time.Second)
+				secondsSinceStart := time.Now().Sub(pomodoroStartTime).Round(time.Second)
+				fmt.Printf("\r %v", secondsSinceStart)
+			}
+			fmt.Println("\nPomodoro finished")
 		})
 	commando.Parse(nil)
 }
