@@ -4,7 +4,7 @@ Simple CLI app to remember taking breaks while coding.
 ## Why?
 In order to keep a necessary compensation while coding, someone should always remind you to take an active break. 
 
-## Getting started
+## Start timer
 ```
 gopo time
 ```
