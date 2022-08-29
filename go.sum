@@ -1,3 +1,7 @@
+github.com/cocoonlife/goalsa v0.0.0-20211008122401-47ec570866e3 h1:cwdUf09+PD5/hle/jb9WHISSCLzQweiUc0sPxfrA6UE=
+github.com/cocoonlife/goalsa v0.0.0-20211008122401-47ec570866e3/go.mod h1:5aLO409bJnd+jCw0t/SB/DhHkVBhPAE31lnHJnYQxy0=
+github.com/cryptix/wav v0.0.0-20180415113528-8bdace674401 h1:rZ+OHHkwlkYALTEd6AYXSL92K/SEc4fkz+TfweIwu6A=
+github.com/cryptix/wav v0.0.0-20180415113528-8bdace674401/go.mod h1:knK8fd+KPlGGqSUWogv1DQzGTwnfUvAi0cIoWyOG7+U=
 github.com/thatisuday/clapper v1.0.10 h1:1EkqE/nb4npp8DuTKnpvVzO/Mcac9lOPND34uUKF+bU=
 github.com/thatisuday/clapper v1.0.10/go.mod h1:FQGIg8q2uzeI+3SUS82YKF4E3KexkHStbiK4qTfDknM=
 github.com/thatisuday/commando v1.0.4 h1:aNdH9tvmx2EPG6rT3NTQOV/qFYPf4Ap4Spo+q+n9Ois=
