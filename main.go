@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/faiface/beep"
 	"github.com/faiface/beep/speaker"
 	"github.com/faiface/beep/wav"
 	"github.com/thatisuday/commando"
@@ -45,8 +46,13 @@ func main() {
 			}
 			defer streamer.Close()
 			speaker.Init(format.SampleRate, format.SampleRate.N(time.Second/10))
-			speaker.Play(streamer)
-			select {} //hangs the program forever
+
+			done := make(chan bool)
+			speaker.Play(beep.Seq(streamer, beep.Callback(func() {
+				done <- true
+			})))
+
+			<-done
 		})
 	commando.Parse(nil)
 }
